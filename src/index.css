@@ -7,7 +7,25 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+a{
+  cursor: pointer;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.component{
+  background-color: rgb(255, 255, 255);
+  color: rgb(105, 122, 141);;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  margin: 1.5rem;
+
+  border-radius: 15px;
+  box-shadow: rgba(161, 172, 184, 0.15) 0px 0px 0.375rem 0.25rem;
 }
