@@ -1,0 +1,69 @@
+import React,{ useState} from "react";
+
+import { updateStudent } from "../../data/firebase-data";
+
+const Modal = ({ id, studentId, title, field,currentData }) => {
+ 
+    const [newData, setNewData] = useState("");
+
+    const handleUpdate = async(id,field, data) => {
+        await updateStudent(id, field, data);
+        setNewData("");
+        window.location.reload(false);
+    }
+  return (
+    <div
+      dir="rlt"
+      className="modal fade"
+      id={`${id}Modal`}
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabIndex="-1"
+      aria-labelledby={`${id}BackdropLabel`}
+      aria-hidden="true"
+    >
+      <div className="modal-dialog">
+        <div className="modal-content">
+          <div className="modal-header">
+            <button
+              type="button"
+              className="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+            <h1 className="modal-title fs-5">تعديل {title}</h1>
+          </div>
+          <div className="modal-body">
+            <input
+              type="search"
+              value={newData}
+              className="form-control my-4"
+              placeholder={currentData}
+              onChange={(e)=>setNewData(e.currentTarget.value)}
+            />
+          </div>
+          <div className="modal-footer">
+            <button
+              type="button"
+              className="btn btn-secondary"
+              data-bs-dismiss="modal"
+              onClick={()=>setNewData("")}
+            >
+              الغاء
+            </button>
+            <button
+              type="button"
+              className="btn btn-primary"
+              data-bs-dismiss="modal"
+              onClick={()=>handleUpdate(studentId,field, newData)}
+            >
+              حفظ
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Modal;

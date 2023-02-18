@@ -1,15 +1,19 @@
 import React from "react";
 import { FiSettings, FiUser, FiLogOut } from "react-icons/fi";
 
+import "./navBar.scss";
+
 const NavBar = () => {
   return (
     <nav className="component">
       <div className="dropdown">
+        {/* eslint-disable-next-line */}
         <a className="nav-link" data-bs-toggle="dropdown" aria-expanded="false">
-          سفيان
+          سفيان امرابط
         </a>
         <ul className="dropdown-menu">
           <li>
+            {/* eslint-disable-next-line */}
             <a
               className="d-flex justify-content-between align-items-center dropdown-item"
               href="#"
@@ -19,6 +23,7 @@ const NavBar = () => {
             </a>
           </li>
           <li>
+            {/* eslint-disable-next-line */}
             <a
               className="d-flex justify-content-between align-items-center dropdown-item"
               href="#"
@@ -32,6 +37,7 @@ const NavBar = () => {
           </li>
 
           <li>
+            {/* eslint-disable-next-line */}
             <a
               className="d-flex justify-content-between align-items-center dropdown-item"
               href="auth-login-basic.html"
@@ -53,11 +59,13 @@ const NavBar = () => {
         </button>
         <ul className="dropdown-menu">
           <li style={{ textAlign: "right" }}>
+            {/* eslint-disable-next-line */}
             <a className="dropdown-item" href="#">
               نسخة عربية
             </a>
           </li>
           <li style={{ textAlign: "right" }}>
+            {/* eslint-disable-next-line */}
             <a className="dropdown-item" href="#">
               نسخة فرنسية
             </a>
