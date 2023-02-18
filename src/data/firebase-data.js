@@ -21,7 +21,7 @@ export async function getAllStudents() {
 }
 
 export async function addStudent(student) {
-  await addDoc(doc(db, collectionName), student);
+  await addDoc(collection(db, collectionName), student);
 }
 
 export async function updateStudent(id, field, value) {
