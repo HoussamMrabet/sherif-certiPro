@@ -1,4 +1,5 @@
 import React, { useState, useEffect, createContext } from "react";
+import { Routes, Route } from "react-router-dom";
 import NavBar from "./components/navBar/navBar";
 import Table from "./components/tables/tables";
 
@@ -24,10 +25,17 @@ function App() {
   return (
     <div className="container-fluid">
       <NavBar />
-      <StudentsContext.Provider value={students}>
-        <Table data={students} keys={keys} />
-      </StudentsContext.Provider>
-      <CreateAtt />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <StudentsContext.Provider value={students}>
+              <Table data={students} keys={keys} />
+            </StudentsContext.Provider>
+          }
+        />
+        <Route path="/createAtt" element={<CreateAtt />} />
+      </Routes>
     </div>
   );
 }

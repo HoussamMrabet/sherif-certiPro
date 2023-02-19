@@ -1,4 +1,11 @@
 .formAtt{
     display: flex;
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
     flex-wrap: wrap;
+
+    @media screen and (max-width: 1200px) {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
 }

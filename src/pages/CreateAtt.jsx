@@ -15,7 +15,7 @@ const CreateAtt = () => {
 
   return (
     <>
-      <div className='d-flex justify-content-between'>
+      <div className='createAtt'>
         <div ref={componentRef} style={{width: "100%", height: window.innerHeight}}>
           <DisplayAtt />
         </div>

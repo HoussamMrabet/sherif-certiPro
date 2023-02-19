@@ -43,7 +43,7 @@ const FormAttestationAr = () => {
   };
   
   return (
-    <div className='component formAtt col-6'>
+    <div className='component formAtt'>
       <div className="m-3 col-3">
         <label className="form-label">الرقم الترتيبي</label>
         <input type="text" value={num} className="form-control" onChange={(e)=>setNum(e.currentTarget.value)} /> 
