@@ -2,24 +2,31 @@ import React,{ useState} from "react";
 
 import { updateStudent } from "../../data/firebase-data";
 
-const Modal = ({ id, studentId, title, field,currentData }) => {
+const Modal = (props) => {
  
     const [newData, setNewData] = useState("");
 
     const handleUpdate = async(id,field, data) => {
-        await updateStudent(id, field, data);
-        setNewData("");
-        window.location.reload(false);
+      const updatedStudents = props.students.map((student) => {
+        if (student.id === id) {
+          return { ...student, [field]: data };
+        }
+        return student;
+      });
+
+      props.onDataChange(updatedStudents);  
+      await updateStudent(id, field, data);
+      setNewData("");
     }
   return (
     <div
       dir="rlt"
       className="modal fade"
-      id={`${id}Modal`}
+      id={`${props.id}Modal`}
       data-bs-backdrop="static"
       data-bs-keyboard="false"
       tabIndex="-1"
-      aria-labelledby={`${id}BackdropLabel`}
+      aria-labelledby={`${props.id}BackdropLabel`}
       aria-hidden="true"
     >
       <div className="modal-dialog">
@@ -31,14 +38,14 @@ const Modal = ({ id, studentId, title, field,currentData }) => {
               data-bs-dismiss="modal"
               aria-label="Close"
             ></button>
-            <h1 className="modal-title fs-5">تعديل {title}</h1>
+            <h1 className="modal-title fs-5">تعديل {props.title}</h1>
           </div>
           <div className="modal-body">
             <input
               type="search"
               value={newData}
               className="form-control my-4"
-              placeholder={currentData}
+              placeholder={props.currentData}
               onChange={(e)=>setNewData(e.currentTarget.value)}
             />
           </div>
@@ -55,7 +62,7 @@ const Modal = ({ id, studentId, title, field,currentData }) => {
               type="button"
               className="btn btn-primary"
               data-bs-dismiss="modal"
-              onClick={()=>handleUpdate(studentId,field, newData)}
+              onClick={()=>handleUpdate(props.studentId,props.field, newData)}
             >
               حفظ
             </button>

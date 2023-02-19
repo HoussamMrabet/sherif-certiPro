@@ -3,6 +3,7 @@ import { IconContext } from "react-icons";
 import { TbEdit } from "react-icons/tb";
 import { FaTrashAlt, FaFileDownload } from "react-icons/fa";
 import Modal from "./modal";
+import _ from "lodash";
 
 import { deleteStudent } from "../../data/firebase-data";
 
@@ -10,6 +11,7 @@ import "./tables.scss";
 
 const Table = ({ data, keys }) => {
   const [students, setStudents] = useState([]);
+  const [order, setOrder] = useState("desc");
 
   useEffect(() => {
     setStudents(data);
@@ -27,8 +29,30 @@ const Table = ({ data, keys }) => {
     }
   };
 
+  const handleDataChange = (newStudent) => {
+    setStudents(newStudent);
+  }
+
+  const handleSort = (property) => {
+      if (order === "desc") {
+        students.sort((a, b) =>
+          a[property].toUpperCase() > b[property].toUpperCase()
+            ? 1
+            : -1
+        );
+        setOrder("asc");
+      } else {
+        students.sort((a, b) =>
+        a[property].toUpperCase() < b[property].toUpperCase()
+        ? 1
+        : -1
+        );
+        setOrder("desc");
+      }
+  }
+
   return (
-    <div className="component">
+    <div className="component table-overflow">
       <h3>الشواهد المدرسية</h3>
       <input
         type="search"
@@ -41,7 +65,7 @@ const Table = ({ data, keys }) => {
         <thead>
           <tr>
             {keys.map((key, index) => (
-              <th key={index} className="pointer" scope="col">
+              <th key={index} className="pointer" scope="col" onClick={()=>handleSort(key.propertie)}>
                 {key.propertieAr}
               </th>
             ))}
@@ -58,7 +82,7 @@ const Table = ({ data, keys }) => {
                     <TbEdit
                       className="pointer"
                       data-bs-toggle="modal"
-                      data-bs-target={`#${student[key.propertie]}Modal`}
+                      data-bs-target={`#${student.id}${key.propertie}Modal`}
                     />
                   </div>
                 </td>
@@ -88,11 +112,13 @@ const Table = ({ data, keys }) => {
         keys.map((key, index) => (
           <Modal
             key={index}
-            id={student[key.propertie]}
+            id={student.id+key.propertie}
             studentId={student.id}
             title={key.propertieAr}
             field={key.propertie}
             currentData={student[key.propertie]}
+            onDataChange={handleDataChange}
+            students={students}
           />
         ))
       )}
