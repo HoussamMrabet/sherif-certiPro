@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import {GrPowerReset} from 'react-icons/gr';
 import {AiOutlineSave} from 'react-icons/ai';
+import { ToastContainer, toast } from 'react-toastify';
 
 import { addStudent } from '../../data/firebase-data';
 
@@ -39,7 +40,8 @@ const FormAttestationAr = () => {
   const saveHandler = async() => {
     const instance = {num, fName, lName, dateNaissance, lieuNaissance, codeNational, numInsc, dateInsc, niveau, anneeScolaire, note, dateSituation};
     await addStudent(instance);
-    window.location.reload(false);
+    resetInputs();
+    toast.success("تمت الاضافة بنجاح");
   };
   
   return (
@@ -97,6 +99,7 @@ const FormAttestationAr = () => {
         <button className='btn btn-success' onClick={()=>saveHandler()}><AiOutlineSave /></button>
         <button className='btn btn-secondary mx-2' onClick={()=>resetInputs()}><GrPowerReset /></button>
       </div>
+      <ToastContainer />
     </div>
   )
 }
