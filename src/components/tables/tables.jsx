@@ -3,7 +3,6 @@ import { IconContext } from "react-icons";
 import { TbEdit } from "react-icons/tb";
 import { FaTrashAlt, FaFileDownload } from "react-icons/fa";
 import Modal from "./modal";
-import _ from "lodash";
 
 import { deleteStudent } from "../../data/firebase-data";
 
