@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {default as img} from "../../logo.png";
+import {default as img} from "../../assets/logo.png";
 
 import "./attestation.scss"
 
@@ -33,12 +33,12 @@ const DisplayAtt = ({formValues, counter}) => {
     <div className='printer'>
       <div className='component col att'>
         <img src={img} alt="" />
-        <h5 className='my-1' style={{fontSize: "18px"}}>الاكاديمية الجهوية للتربية و التكوين لجهة الدار البيضاء - سطات</h5>
-        <h5 className='my-1' style={{fontSize: "18px"}}>المديرية الاقليمية لبنسليمان</h5>
-        <h5 className='my-1' style={{fontSize: "18px"}}>الثانوية التأهيلية الشريف الإدريسي</h5>
-        <h6 className='my-1'>بنسليمان 023291593</h6>
-        <h6 className='bordred-title my-1'><span className='attNumTitle'>شهادة مدرسية رقم: </span><span className='attNum mx-4'>{yearRange}{counter}</span></h6>
-        <h6 className='my-3'>يشهد : مدير الثانوية التأهيلية الشريف الإدريسي ببنسليمان</h6>
+        <h5 className='mb-1 wizara'>الاكاديمية الجهوية للتربية و التكوين لجهة الدار البيضاء - سطات</h5>
+        <h5 className='mb-1 wizara'>المديرية الاقليمية لبنسليمان</h5>
+        <h5 className='mb-1 wizara'>الثانوية التأهيلية الشريف الإدريسي</h5>
+        <h6 className='mb-1 wizara' style={{fontSize: "16px"}}>بنسليمان 023291593</h6>
+        <h6 className='bordred-title mb-1'><span className='attNumTitle'>شهادة مدرسية رقم: </span><span className='attNum mx-4'>{yearRange}{counter}</span></h6>
+        <h6 className='mb-3'>يشهد : مدير الثانوية التأهيلية الشريف الإدريسي ببنسليمان</h6>
         <div className='singleRow my-2'>
             <span>بأن التلميذ(ة): </span><span className='value'>{formValues.fName} {formValues.lName}</span>
         </div>
@@ -46,34 +46,37 @@ const DisplayAtt = ({formValues, counter}) => {
           <div>
             <span>المزداد(ة) في: </span><span className='value'>{formValues.lieuNaissance}</span>
           </div>
+          <div className='gap'></div>
           <div className='secondEl'>
             <span>بتاريخ: </span><span className='value'>{formValues.dateNaissance}</span>
           </div>
+          <div></div>
         </div>
         <div className='attRow my-2'>
-          <div className=''>
-            <span>الرقم الوطني: </span><span className='value'>{formValues.codeNational}</span>
-          </div>
-          <div className=''>
-            <span>رقم التسجيل: </span><span className='value'>{formValues.numInsc}</span>
-          </div>
+            <div className=''>
+              <span>الرقم الوطني: </span><span className='value'>{formValues.codeNational}</span>
+            </div>
+            <div className='gap'></div>
+            <div className='secondEl'>
+              <span>رقم التسجيل: </span><span className='value'>{formValues.numInsc}</span>
+            </div>
+            <div></div>
+          <div></div>
         </div>
         <div className='singleRow my-2'>
             <span>كان(ت) يتابع دراسته(ها) بمستوى: </span><span className='value'>{formValues.niveau}</span>
         </div>
-        <div  style={{fontSize: "14px"}} className='attRow my-2'>
-          <div>
-            <span>و قد انقطع عن الدراسة بتاريخ: </span><span className='value'>{formValues.dateSituation}</span>
-          </div>
-          <div className='secondEl'>
+        <div className='singleRow my-2'>
             <span>الموسم الدراسي: </span><span className='value'>{formValues.anneeScolaire}</span>
-          </div>
+        </div>
+        <div className='singleRow my-2'>
+            <span>و قد انقطع عن الدراسة بتاريخ: </span><span className='value'>{formValues.dateSituation}</span>
         </div>
         <div className='singleRow my-2'>
             <span>ملاحظات: </span><span className='value'>{formValues.note}</span>
         </div>
         <div className='singleRow my-2'>
-            <span style={{fontWeight: "bolder", fontSize: "14px"}}>ملحوظة : سلمت هذه الشهادة لغرض اداري ولا تخول التسجيل في مؤسسة أخرى</span>
+            <span style={{fontWeight: "bolder", fontSize: "13px"}}>ملحوظة : سلمت هذه الشهادة لغرض اداري ولا تخول التسجيل في مؤسسة أخرى</span>
         </div>
         <div className='singleRow-R my-2'>
           <span>بنسليمان في: </span><span className='value'>{today}</span>
@@ -81,6 +84,9 @@ const DisplayAtt = ({formValues, counter}) => {
         <div className='attRow-E my-2 mb-4'>
           <div>
             <span>المستندات</span>
+          </div>
+          <div>
+            <span>الناظر</span>
           </div>
           <div className='secondEl'>
             <span>رئيس المؤسسة</span>
@@ -89,12 +95,12 @@ const DisplayAtt = ({formValues, counter}) => {
       </div>
       <div className='component col att second'>
         <img src={img} alt="" />
-        <h5 className='my-1' style={{fontSize: "18px"}}>الاكاديمية الجهوية للتربية و التكوين لجهة الدار البيضاء - سطات</h5>
-        <h5 className='my-1' style={{fontSize: "18px"}}>المديرية الاقليمية لبنسليمان</h5>
-        <h5 className='my-1' style={{fontSize: "18px"}}>الثانوية التأهيلية الشريف الإدريسي</h5>
-        <h6 className='my-1'>بنسليمان 023291593</h6>
-        <h6 className='bordred-title my-1'><span className='attNumTitle'>شهادة مدرسية رقم: </span><span className='attNum mx-4'>{yearRange}{counter}</span></h6>
-        <h6 className='my-3'>يشهد : مدير الثانوية التأهيلية الشريف الإدريسي ببنسليمان</h6>
+        <h5 className='mb-1 wizara'>الاكاديمية الجهوية للتربية و التكوين لجهة الدار البيضاء - سطات</h5>
+        <h5 className='mb-1 wizara'>المديرية الاقليمية لبنسليمان</h5>
+        <h5 className='mb-1 wizara'>الثانوية التأهيلية الشريف الإدريسي</h5>
+        <h6 className='mb-1 wizara' style={{fontSize: "16px"}}>بنسليمان 023291593</h6>
+        <h6 className='bordred-title mb-1'><span className='attNumTitle'>شهادة مدرسية رقم: </span><span className='attNum mx-4'>{yearRange}{counter}</span></h6>
+        <h6 className='mb-3'>يشهد : مدير الثانوية التأهيلية الشريف الإدريسي ببنسليمان</h6>
         <div className='singleRow my-2'>
             <span>بأن التلميذ(ة): </span><span className='value'>{formValues.fName} {formValues.lName}</span>
         </div>
@@ -102,34 +108,37 @@ const DisplayAtt = ({formValues, counter}) => {
           <div>
             <span>المزداد(ة) في: </span><span className='value'>{formValues.lieuNaissance}</span>
           </div>
+          <div className='gap'></div>
           <div className='secondEl'>
             <span>بتاريخ: </span><span className='value'>{formValues.dateNaissance}</span>
           </div>
+          <div></div>
         </div>
         <div className='attRow my-2'>
-          <div className=''>
-            <span>الرقم الوطني: </span><span className='value'>{formValues.codeNational}</span>
-          </div>
-          <div className=''>
-            <span>رقم التسجيل: </span><span className='value'>{formValues.numInsc}</span>
-          </div>
+            <div className=''>
+              <span>الرقم الوطني: </span><span className='value'>{formValues.codeNational}</span>
+            </div>
+            <div className='gap'></div>
+            <div className='secondEl'>
+              <span>رقم التسجيل: </span><span className='value'>{formValues.numInsc}</span>
+            </div>
+            <div></div>
+          <div></div>
         </div>
         <div className='singleRow my-2'>
             <span>كان(ت) يتابع دراسته(ها) بمستوى: </span><span className='value'>{formValues.niveau}</span>
         </div>
-        <div  style={{fontSize: "14px"}} className='attRow my-2'>
-          <div>
-            <span>و قد انقطع عن الدراسة بتاريخ: </span><span className='value'>{formValues.dateSituation}</span>
-          </div>
-          <div className='secondEl'>
+        <div className='singleRow my-2'>
             <span>الموسم الدراسي: </span><span className='value'>{formValues.anneeScolaire}</span>
-          </div>
+        </div>
+        <div className='singleRow my-2'>
+            <span>و قد انقطع عن الدراسة بتاريخ: </span><span className='value'>{formValues.dateSituation}</span>
         </div>
         <div className='singleRow my-2'>
             <span>ملاحظات: </span><span className='value'>{formValues.note}</span>
         </div>
         <div className='singleRow my-2'>
-            <span style={{fontWeight: "bolder", fontSize: "14px"}}>ملحوظة : سلمت هذه الشهادة لغرض اداري ولا تخول التسجيل في مؤسسة أخرى</span>
+            <span style={{fontWeight: "bolder", fontSize: "13px"}}>ملحوظة : سلمت هذه الشهادة لغرض اداري ولا تخول التسجيل في مؤسسة أخرى</span>
         </div>
         <div className='singleRow-R my-2'>
           <span>بنسليمان في: </span><span className='value'>{today}</span>
@@ -137,6 +146,9 @@ const DisplayAtt = ({formValues, counter}) => {
         <div className='attRow-E my-2 mb-4'>
           <div>
             <span>المستندات</span>
+          </div>
+          <div>
+            <span>الناظر</span>
           </div>
           <div className='secondEl'>
             <span>رئيس المؤسسة</span>

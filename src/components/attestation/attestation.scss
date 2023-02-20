@@ -1,3 +1,12 @@
+@font-face{
+    font-family: 'MyFont';
+    src: url('../../assets/arabswell-1.ttf') format('truetype');
+}
+.wizara{
+    font-family: 'MyFont', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+}
 img{
     margin-left: 500px;
     width: 100%;
@@ -48,7 +57,7 @@ img{
 
 .bordred-title{
 
-    padding: 0.5rem 2.2rem;
+    padding: 0.25rem 1.5rem;
     border: 1px solid black;
     border-bottom: 3px solid black;
     border-left: 3px solid black;
@@ -61,12 +70,14 @@ img{
         font-size: small
     }
 }
-
+.gap{
+    width: 200px;
+}
 .attRow{
     width: 100%;
     align-self: flex-start;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-direction: row;
     font-size: 14px;
 
@@ -80,8 +91,8 @@ img{
 }
 
 .value{
+    align-self: flex-start;
     font-weight: bolder;
-    margin-right: 10px;
     flex-wrap: nowrap;
     font-size: 14px;
 }
