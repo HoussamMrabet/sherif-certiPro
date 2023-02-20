@@ -1,4 +1,5 @@
 import React, { useState, useEffect, createContext } from "react";
+import UpdateContext from "./updateContext";
 import { Routes, Route } from "react-router-dom";
 import NavBar from "./components/navBar/navBar";
 import Table from "./components/tables/tables";
@@ -11,6 +12,7 @@ const StudentsContext = createContext(null);
 
 function App() {
   const [students, setStudents] = useState([]);
+  const [updateContext, setUpdateContext] = useState(0);
 
   useEffect(() => {
     getAllStudents()
@@ -20,7 +22,7 @@ function App() {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [updateContext]);
 
   return (
     <div className="container-fluid">
@@ -34,7 +36,14 @@ function App() {
             </StudentsContext.Provider>
           }
         />
-        <Route path="/createAtt" element={<CreateAtt />} />
+        <Route
+          path="/createAtt"
+          element={
+            <UpdateContext.Provider value={{ updateContext, setUpdateContext }}>
+              <CreateAtt />
+            </UpdateContext.Provider>
+          }
+        />
       </Routes>
     </div>
   );

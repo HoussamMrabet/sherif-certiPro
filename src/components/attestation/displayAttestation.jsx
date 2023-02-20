@@ -1,9 +1,34 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {default as img} from "../../logo.png";
 
 import "./attestation.scss"
 
-const DisplayAtt = () => {
+const DisplayAtt = ({formValues, counter}) => {
+
+  const [today, setToday] = useState("");
+  const [yearRange, setYearRange] = useState("");
+
+  useEffect(() => {
+    setToday(dateToday());
+    setYearRange(getYearRange());
+  }, []);
+
+  const dateToday = () => {
+    const today = new Date();
+    const day = String(today.getDate()).padStart(2, '0');
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const year = today.getFullYear();
+    const todayFormatted = `${day}/${month}/${year}`;
+
+    return todayFormatted;
+  }
+
+  const getYearRange = () => {
+    const currentYear = new Date().getFullYear();
+    const previousYear = currentYear - 1;
+    return `${previousYear.toString().substring(2)}/${currentYear.toString().substring(2)}/`;
+  }
+  
   return (
     <div className='printer'>
       <div className='component col att'>
@@ -12,46 +37,46 @@ const DisplayAtt = () => {
         <h5 className='my-1' style={{fontSize: "18px"}}>المديرية الاقليمية لبنسليمان</h5>
         <h5 className='my-1' style={{fontSize: "18px"}}>الثانوية التأهيلية الشريف الإدريسي</h5>
         <h6 className='my-1'>بنسليمان 023291593</h6>
-        <h6 className='bordred-title my-1'><span className='attNumTitle'>شهادة مدرسية رقم: </span><span className='attNum mx-4'>22/23/446</span></h6>
+        <h6 className='bordred-title my-1'><span className='attNumTitle'>شهادة مدرسية رقم: </span><span className='attNum mx-4'>{yearRange}{counter}</span></h6>
         <h6 className='my-3'>يشهد : مدير الثانوية التأهيلية الشريف الإدريسي ببنسليمان</h6>
-        <div className='attRow my-2'>
-          <div className=''>
-            <span>بأن التلميذ(ة): </span><span className='value'>حسام امرابط</span>
-          </div>
-          <div className=''>
-            <span>رقم التسجيل: </span><span className='value'>حسام امرابط</span>
-          </div>
+        <div className='singleRow my-2'>
+            <span>بأن التلميذ(ة): </span><span className='value'>{formValues.fName} {formValues.lName}</span>
         </div>
         <div className='attRow my-2'>
           <div>
-            <span>المزداد(ة) في: </span><span className='value'>حسام امرابط</span>
+            <span>المزداد(ة) في: </span><span className='value'>{formValues.lieuNaissance}</span>
           </div>
           <div className='secondEl'>
-            <span>بتاريخ: </span><span className='value'>حسام امرابط</span>
+            <span>بتاريخ: </span><span className='value'>{formValues.dateNaissance}</span>
           </div>
-        </div>
-        <div className='singleRow my-2'>
-            <span>كان(ت) يتابع دراسته(ها) بمستوى: </span><span className='value'>حسام امرابط</span>
-        </div>
-        <div className='singleRow my-2'>
-            <span>و قد انقطع عن الدراسة بتاريخ: </span><span className='value'>حسام امرابط</span>
         </div>
         <div className='attRow my-2'>
-          <div>
-            <span>الرقم الوطني: </span><span className='value'>حسام امرابط</span>
+          <div className=''>
+            <span>الرقم الوطني: </span><span className='value'>{formValues.codeNational}</span>
           </div>
-          <div className='secondEl'>
-            <span>الموسم الدراسي: </span><span className='value'>حسام امرابط</span>
+          <div className=''>
+            <span>رقم التسجيل: </span><span className='value'>{formValues.numInsc}</span>
           </div>
         </div>
         <div className='singleRow my-2'>
-            <span>ملاحظات: </span><span className='value'>حسام امرابط</span>
+            <span>كان(ت) يتابع دراسته(ها) بمستوى: </span><span className='value'>{formValues.niveau}</span>
+        </div>
+        <div  style={{fontSize: "14px"}} className='attRow my-2'>
+          <div>
+            <span>و قد انقطع عن الدراسة بتاريخ: </span><span className='value'>{formValues.dateSituation}</span>
+          </div>
+          <div className='secondEl'>
+            <span>الموسم الدراسي: </span><span className='value'>{formValues.anneeScolaire}</span>
+          </div>
+        </div>
+        <div className='singleRow my-2'>
+            <span>ملاحظات: </span><span className='value'>{formValues.note}</span>
         </div>
         <div className='singleRow my-2'>
             <span style={{fontWeight: "bolder", fontSize: "14px"}}>ملحوظة : سلمت هذه الشهادة لغرض اداري ولا تخول التسجيل في مؤسسة أخرى</span>
         </div>
         <div className='singleRow-R my-2'>
-          <span>بنسليمان في: </span><span className='value'>حسام امرابط</span>
+          <span>بنسليمان في: </span><span className='value'>{today}</span>
         </div>
         <div className='attRow-E my-2 mb-4'>
           <div>
@@ -68,46 +93,46 @@ const DisplayAtt = () => {
         <h5 className='my-1' style={{fontSize: "18px"}}>المديرية الاقليمية لبنسليمان</h5>
         <h5 className='my-1' style={{fontSize: "18px"}}>الثانوية التأهيلية الشريف الإدريسي</h5>
         <h6 className='my-1'>بنسليمان 023291593</h6>
-        <h6 className='bordred-title my-1'><span className='attNumTitle'>شهادة مدرسية رقم: </span><span className='attNum mx-4'>22/23/446</span></h6>
+        <h6 className='bordred-title my-1'><span className='attNumTitle'>شهادة مدرسية رقم: </span><span className='attNum mx-4'>{yearRange}{counter}</span></h6>
         <h6 className='my-3'>يشهد : مدير الثانوية التأهيلية الشريف الإدريسي ببنسليمان</h6>
-        <div className='attRow my-2'>
-          <div className=''>
-            <span>بأن التلميذ(ة): </span><span className='value'>حسام امرابط</span>
-          </div>
-          <div className=''>
-            <span>رقم التسجيل: </span><span className='value'>حسام امرابط</span>
-          </div>
+        <div className='singleRow my-2'>
+            <span>بأن التلميذ(ة): </span><span className='value'>{formValues.fName} {formValues.lName}</span>
         </div>
         <div className='attRow my-2'>
           <div>
-            <span>المزداد(ة) في: </span><span className='value'>حسام امرابط</span>
+            <span>المزداد(ة) في: </span><span className='value'>{formValues.lieuNaissance}</span>
           </div>
           <div className='secondEl'>
-            <span>بتاريخ: </span><span className='value'>حسام امرابط</span>
+            <span>بتاريخ: </span><span className='value'>{formValues.dateNaissance}</span>
           </div>
-        </div>
-        <div className='singleRow my-2'>
-            <span>كان(ت) يتابع دراسته(ها) بمستوى: </span><span className='value'>حسام امرابط</span>
-        </div>
-        <div className='singleRow my-2'>
-            <span>و قد انقطع عن الدراسة بتاريخ: </span><span className='value'>حسام امرابط</span>
         </div>
         <div className='attRow my-2'>
-          <div>
-            <span>الرقم الوطني: </span><span className='value'>حسام امرابط</span>
+          <div className=''>
+            <span>الرقم الوطني: </span><span className='value'>{formValues.codeNational}</span>
           </div>
-          <div className='secondEl'>
-            <span>الموسم الدراسي: </span><span className='value'>حسام امرابط</span>
+          <div className=''>
+            <span>رقم التسجيل: </span><span className='value'>{formValues.numInsc}</span>
           </div>
         </div>
         <div className='singleRow my-2'>
-            <span>ملاحظات: </span><span className='value'>حسام امرابط</span>
+            <span>كان(ت) يتابع دراسته(ها) بمستوى: </span><span className='value'>{formValues.niveau}</span>
+        </div>
+        <div  style={{fontSize: "14px"}} className='attRow my-2'>
+          <div>
+            <span>و قد انقطع عن الدراسة بتاريخ: </span><span className='value'>{formValues.dateSituation}</span>
+          </div>
+          <div className='secondEl'>
+            <span>الموسم الدراسي: </span><span className='value'>{formValues.anneeScolaire}</span>
+          </div>
+        </div>
+        <div className='singleRow my-2'>
+            <span>ملاحظات: </span><span className='value'>{formValues.note}</span>
         </div>
         <div className='singleRow my-2'>
             <span style={{fontWeight: "bolder", fontSize: "14px"}}>ملحوظة : سلمت هذه الشهادة لغرض اداري ولا تخول التسجيل في مؤسسة أخرى</span>
         </div>
         <div className='singleRow-R my-2'>
-          <span>بنسليمان في: </span><span className='value'>حسام امرابط</span>
+          <span>بنسليمان في: </span><span className='value'>{today}</span>
         </div>
         <div className='attRow-E my-2 mb-4'>
           <div>

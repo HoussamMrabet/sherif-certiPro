@@ -68,6 +68,7 @@ img{
     display: flex;
     justify-content: space-between;
     flex-direction: row;
+    font-size: 14px;
 
     &-E{
         width: 100%;
@@ -80,8 +81,9 @@ img{
 
 .value{
     font-weight: bolder;
-    margin-right: 15px;
+    margin-right: 10px;
     flex-wrap: nowrap;
+    font-size: 14px;
 }
 
 .singleRow{
