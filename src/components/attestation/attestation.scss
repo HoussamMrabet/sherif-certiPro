@@ -1,4 +1,94 @@
 img{
+    margin-left: 500px;
     width: 100%;
     margin: auto;
+    transform:translateX(10)
+}
+
+.att{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(4, 3, 7);
+}
+
+.printer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.second{
+    display: none;
+}
+
+@media print{
+
+    @page{
+        size: A4 landscape;
+    }
+
+    .att{
+        direction: rtl;
+        border: 1px solid black;
+        box-shadow: none;
+        height: auto;
+        width: 45%;
+    }
+    img{
+        width: 100%;
+        margin: auto;
+    }
+
+    .second{
+        direction: rtl;
+        display:flex;
+    }
+}
+
+.bordred-title{
+
+    padding: 0.5rem 2.2rem;
+    border: 1px solid black;
+    border-bottom: 3px solid black;
+    border-left: 3px solid black;
+
+    .attNumTitle{
+        color: rgb(35, 86, 163);
+    }
+
+    .attNum{
+        font-size: small
+    }
+}
+
+.attRow{
+    width: 100%;
+    align-self: flex-start;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+
+    &-E{
+        width: 100%;
+        align-self: flex-start;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;    
+    }
+}
+
+.value{
+    font-weight: bolder;
+    margin-right: 15px;
+    flex-wrap: nowrap;
+}
+
+.singleRow{
+    align-self: flex-start;
+    width: 100%;
+
+    &-R{
+        align-self: flex-end;
+    }
 }
