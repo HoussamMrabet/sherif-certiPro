@@ -36,13 +36,13 @@ const DisplayAtt = ({formValues, counter}) => {
         <h5 className='mb-1 wizara'>الاكاديمية الجهوية للتربية و التكوين لجهة الدار البيضاء - سطات</h5>
         <h5 className='mb-1 wizara'>المديرية الاقليمية لبنسليمان</h5>
         <h5 className='mb-1 wizara'>الثانوية التأهيلية الشريف الإدريسي</h5>
-        <h6 className='mb-1 wizara' style={{fontSize: "16px"}}>بنسليمان 023291593</h6>
-        <h6 className='bordred-title mb-1'><span className='attNumTitle'>شهادة مدرسية رقم: </span><span className='attNum mx-4'>{yearRange}{counter}</span></h6>
+        <h6 className='mb-3 wizara' style={{fontSize: "16px"}}>بنسليمان 0523291593</h6>
+        <h6 className='bordred-title mb-3'><span className='attNumTitle'>شهادة مدرسية رقم: </span><span className='attNum mx-4'>{yearRange}{counter}</span></h6>
         <h6 className='mb-3'>يشهد : مدير الثانوية التأهيلية الشريف الإدريسي ببنسليمان</h6>
-        <div className='singleRow my-2'>
+        <div className='singleRow mt-2 mb-1'>
             <span>بأن التلميذ(ة): </span><span className='value'>{formValues.fName} {formValues.lName}</span>
         </div>
-        <div className='attRow my-2'>
+        <div className='attRow my-1'>
           <div>
             <span>المزداد(ة) في: </span><span className='value'>{formValues.lieuNaissance}</span>
           </div>
@@ -52,7 +52,7 @@ const DisplayAtt = ({formValues, counter}) => {
           </div>
           <div></div>
         </div>
-        <div className='attRow my-2'>
+        <div className='attRow my-1'>
             <div className=''>
               <span>الرقم الوطني: </span><span className='value'>{formValues.codeNational}</span>
             </div>
@@ -63,25 +63,25 @@ const DisplayAtt = ({formValues, counter}) => {
             <div></div>
           <div></div>
         </div>
-        <div className='singleRow my-2'>
+        <div className='singleRow my-1'>
             <span>كان(ت) يتابع دراسته(ها) بمستوى: </span><span className='value'>{formValues.niveau}</span>
         </div>
-        <div className='singleRow my-2'>
+        <div className='singleRow my-1'>
             <span>الموسم الدراسي: </span><span className='value'>{formValues.anneeScolaire}</span>
         </div>
-        <div className='singleRow my-2'>
+        <div className='singleRow my-1'>
             <span>و قد انقطع عن الدراسة بتاريخ: </span><span className='value'>{formValues.dateSituation}</span>
         </div>
-        <div className='singleRow my-2'>
+        <div className='singleRow my-1'>
             <span>ملاحظات: </span><span className='value'>{formValues.note}</span>
         </div>
-        <div className='singleRow my-2'>
+        <div className='singleRow my-1'>
             <span style={{fontWeight: "bolder", fontSize: "13px"}}>ملحوظة : سلمت هذه الشهادة لغرض اداري ولا تخول التسجيل في مؤسسة أخرى</span>
         </div>
-        <div className='singleRow-R my-2'>
+        <div className='singleRow-R my-1'>
           <span>بنسليمان في: </span><span className='value'>{today}</span>
         </div>
-        <div className='attRow-E my-2 mb-4'>
+        <div className='attRow-E my-1 mb-4'>
           <div>
             <span>المستندات</span>
           </div>
@@ -91,6 +91,8 @@ const DisplayAtt = ({formValues, counter}) => {
           <div className='secondEl'>
             <span>رئيس المؤسسة</span>
           </div>
+        </div>
+        <div className='attRow-E my-1 my-4'>
         </div>
       </div>
       <div className='component col att second'>
@@ -98,13 +100,13 @@ const DisplayAtt = ({formValues, counter}) => {
         <h5 className='mb-1 wizara'>الاكاديمية الجهوية للتربية و التكوين لجهة الدار البيضاء - سطات</h5>
         <h5 className='mb-1 wizara'>المديرية الاقليمية لبنسليمان</h5>
         <h5 className='mb-1 wizara'>الثانوية التأهيلية الشريف الإدريسي</h5>
-        <h6 className='mb-1 wizara' style={{fontSize: "16px"}}>بنسليمان 023291593</h6>
-        <h6 className='bordred-title mb-1'><span className='attNumTitle'>شهادة مدرسية رقم: </span><span className='attNum mx-4'>{yearRange}{counter}</span></h6>
+        <h6 className='mb-3 wizara' style={{fontSize: "16px"}}>بنسليمان 0523291593</h6>
+        <h6 className='bordred-title mb-3'><span className='attNumTitle'>شهادة مدرسية رقم: </span><span className='attNum mx-4'>{yearRange}{counter}</span></h6>
         <h6 className='mb-3'>يشهد : مدير الثانوية التأهيلية الشريف الإدريسي ببنسليمان</h6>
-        <div className='singleRow my-2'>
+        <div className='singleRow mt-2 mb-1'>
             <span>بأن التلميذ(ة): </span><span className='value'>{formValues.fName} {formValues.lName}</span>
         </div>
-        <div className='attRow my-2'>
+        <div className='attRow my-1'>
           <div>
             <span>المزداد(ة) في: </span><span className='value'>{formValues.lieuNaissance}</span>
           </div>
@@ -114,7 +116,7 @@ const DisplayAtt = ({formValues, counter}) => {
           </div>
           <div></div>
         </div>
-        <div className='attRow my-2'>
+        <div className='attRow my-1'>
             <div className=''>
               <span>الرقم الوطني: </span><span className='value'>{formValues.codeNational}</span>
             </div>
@@ -125,25 +127,25 @@ const DisplayAtt = ({formValues, counter}) => {
             <div></div>
           <div></div>
         </div>
-        <div className='singleRow my-2'>
+        <div className='singleRow my-1'>
             <span>كان(ت) يتابع دراسته(ها) بمستوى: </span><span className='value'>{formValues.niveau}</span>
         </div>
-        <div className='singleRow my-2'>
+        <div className='singleRow my-1'>
             <span>الموسم الدراسي: </span><span className='value'>{formValues.anneeScolaire}</span>
         </div>
-        <div className='singleRow my-2'>
+        <div className='singleRow my-1'>
             <span>و قد انقطع عن الدراسة بتاريخ: </span><span className='value'>{formValues.dateSituation}</span>
         </div>
-        <div className='singleRow my-2'>
+        <div className='singleRow my-1'>
             <span>ملاحظات: </span><span className='value'>{formValues.note}</span>
         </div>
-        <div className='singleRow my-2'>
+        <div className='singleRow my-1'>
             <span style={{fontWeight: "bolder", fontSize: "13px"}}>ملحوظة : سلمت هذه الشهادة لغرض اداري ولا تخول التسجيل في مؤسسة أخرى</span>
         </div>
-        <div className='singleRow-R my-2'>
+        <div className='singleRow-R my-1'>
           <span>بنسليمان في: </span><span className='value'>{today}</span>
         </div>
-        <div className='attRow-E my-2 mb-4'>
+        <div className='attRow-E my-1 mb-4'>
           <div>
             <span>المستندات</span>
           </div>
@@ -153,6 +155,8 @@ const DisplayAtt = ({formValues, counter}) => {
           <div className='secondEl'>
             <span>رئيس المؤسسة</span>
           </div>
+        </div>
+        <div className='attRow-E my-1 my-4'>
         </div>
       </div>
     </div>

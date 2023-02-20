@@ -9,9 +9,9 @@
 }
 img{
     margin-left: 500px;
-    width: 100%;
-    margin: auto;
-    transform:translateX(10)
+    width: 70%;
+    height: auto;
+    margin: 0 0 0 4%;
 }
 
 .att{
@@ -25,6 +25,7 @@ img{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: flex-start;
 }
 
 .second{
