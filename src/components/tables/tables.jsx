@@ -80,12 +80,12 @@ const Table = ({ data, keys }) => {
 
   const handleSort = (property) => {
     if (order === "desc") {
-      students.sort((a, b) =>
+      filtredStudents.sort((a, b) =>
         a[property].toUpperCase() > b[property].toUpperCase() ? 1 : -1
       );
       setOrder("asc");
     } else {
-      students.sort((a, b) =>
+      filtredStudents.sort((a, b) =>
         a[property].toUpperCase() < b[property].toUpperCase() ? 1 : -1
       );
       setOrder("desc");

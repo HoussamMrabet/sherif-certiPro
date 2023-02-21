@@ -16,12 +16,11 @@ const NavBar = () => {
     if(!currentUser){
       navigate('/login');
     }
-  }, [currentUser]);
+  }, [currentUser, navigate]);
 
 
   function handleLogout(){
     logout();
-    navigate('/login');
   }
 
   return (
