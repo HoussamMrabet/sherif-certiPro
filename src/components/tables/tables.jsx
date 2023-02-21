@@ -16,10 +16,12 @@ import "./tables.scss";
 
 const Table = ({ data, keys }) => {
   const [students, setStudents] = useState([]);
+  const [filtredStudents, setFiltredStudents] = useState([]);
   const [order, setOrder] = useState("desc");
   const [counter, setCounter] = useState("");
   const [formValues, setFormValues] = useState({});
   const [toPrint, setToPrint] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   const componentRef = useRef();
 
   useEffect(() => {
@@ -28,6 +30,10 @@ const Table = ({ data, keys }) => {
     });
   }, []);
   
+  useEffect(() => {
+    setFiltredStudents(students);
+  }, [students]);
+
   const printData = useReactToPrint({
     content: () => componentRef.current,
     documentTitle: "attestation",
@@ -44,6 +50,17 @@ const Table = ({ data, keys }) => {
   useEffect(() => {
     setStudents(data);
   }, [data]);
+
+  useEffect(() => {
+    let query = searchQuery?.trim().toLowerCase();
+    const results = students.filter((item) => (
+      item.fName?.toLowerCase().startsWith(query) ||
+      item.lName?.toLowerCase().startsWith(query) ||
+      item.codeNational?.toLowerCase().startsWith(query) ||
+      item.numInsc?.toLowerCase().startsWith(query)
+    ));
+    setFiltredStudents(results);
+  }, [searchQuery, students]);
 
   const handleDelete = async (id) => {
     const originalStudents = students;
@@ -95,6 +112,7 @@ const Table = ({ data, keys }) => {
         className="form-control my-4"
         placeholder="البحث..."
         style={{ width: "30vw" }}
+        onChange={(e)=>setSearchQuery(e.currentTarget.value)}
       />
 
       <table className="table table-bordered">
@@ -114,7 +132,7 @@ const Table = ({ data, keys }) => {
           </tr>
         </thead>
         <tbody>
-          {students.map((student, index) => (
+          {filtredStudents.map((student, index) => (
             <tr key={index}>
               {keys.map((key, index) => (
                 <td key={index}>
