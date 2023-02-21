@@ -1,13 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useReactToPrint } from 'react-to-print';
+import { useReactToPrint } from "react-to-print";
 import { IconContext } from "react-icons";
 import { TbEdit } from "react-icons/tb";
 import { FaTrashAlt, FaFileDownload } from "react-icons/fa";
 import Modal from "./modal";
 import DisplayAtt from "../attestation/displayAttestation";
 
-
-import { updateCounter, getCounter,deleteStudent } from "../../data/firebase-data";
+import {
+  updateCounter,
+  getCounter,
+  deleteStudent,
+} from "../../data/firebase-data";
 
 import "./tables.scss";
 
@@ -15,14 +18,28 @@ const Table = ({ data, keys }) => {
   const [students, setStudents] = useState([]);
   const [order, setOrder] = useState("desc");
   const [counter, setCounter] = useState("");
+  const [formValues, setFormValues] = useState({});
+  const [toPrint, setToPrint] = useState(false);
   const componentRef = useRef();
 
-  useEffect(()=>{
-    getCounter()
-    .then((data) => {
+  useEffect(() => {
+    getCounter().then((data) => {
       setCounter(data[0].num);
-    })
-  }, [])
+    });
+  }, []);
+  
+  const printData = useReactToPrint({
+    content: () => componentRef.current,
+    documentTitle: "attestation",
+    onAfterPrint: () => handleAfterPrint(),
+  });
+  
+  useEffect(() => {
+    if(toPrint){
+      printData();
+      setToPrint(false);
+    }
+  }, [formValues, printData, toPrint]);
 
   useEffect(() => {
     setStudents(data);
@@ -42,35 +59,30 @@ const Table = ({ data, keys }) => {
 
   const handleDataChange = (newStudent) => {
     setStudents(newStudent);
-  }
+  };
 
   const handleSort = (property) => {
-      if (order === "desc") {
-        students.sort((a, b) =>
-          a[property].toUpperCase() > b[property].toUpperCase()
-            ? 1
-            : -1
-        );
-        setOrder("asc");
-      } else {
-        students.sort((a, b) =>
-        a[property].toUpperCase() < b[property].toUpperCase()
-        ? 1
-        : -1
-        );
-        setOrder("desc");
-      }
-  }
+    if (order === "desc") {
+      students.sort((a, b) =>
+        a[property].toUpperCase() > b[property].toUpperCase() ? 1 : -1
+      );
+      setOrder("asc");
+    } else {
+      students.sort((a, b) =>
+        a[property].toUpperCase() < b[property].toUpperCase() ? 1 : -1
+      );
+      setOrder("desc");
+    }
+  };
 
-  const printData = useReactToPrint({
-    content: () => componentRef.current,
-    documentTitle: 'attestation',
-    onAfterPrint: () => handleAfterPrint()
-  });
+
+  const handlePrint = (instance) => {
+    setFormValues(instance);
+    setToPrint(true);
+  }
 
   const handleAfterPrint = () => {
     updateCounter();
-    console.log("handle")
     let newCounter = counter + 1;
     setCounter(newCounter);
   };
@@ -89,7 +101,12 @@ const Table = ({ data, keys }) => {
         <thead>
           <tr>
             {keys.map((key, index) => (
-              <th key={index} className="pointer" scope="col" onClick={()=>handleSort(key.propertie)}>
+              <th
+                key={index}
+                className="pointer"
+                scope="col"
+                onClick={() => handleSort(key.propertie)}
+              >
                 {key.propertieAr}
               </th>
             ))}
@@ -99,11 +116,6 @@ const Table = ({ data, keys }) => {
         <tbody>
           {students.map((student, index) => (
             <tr key={index}>
-              <div style={{display: "none"}}>
-                <div ref={componentRef} style={{width: "100%", height: window.innerHeight}}>
-                  <DisplayAtt formValues={student} counter={counter} />
-                </div>
-              </div>
               {keys.map((key, index) => (
                 <td key={index}>
                   <div className="case">
@@ -119,7 +131,7 @@ const Table = ({ data, keys }) => {
               <td>
                 <div className="case">
                   <IconContext.Provider value={{ color: "#24a0ed" }}>
-                    <div className="pointer" onClick={printData}>
+                    <div className="pointer" onClick={()=>handlePrint(student)}>
                       <FaFileDownload />
                     </div>
                   </IconContext.Provider>
@@ -141,7 +153,7 @@ const Table = ({ data, keys }) => {
         keys.map((key, index) => (
           <Modal
             key={index}
-            id={student.id+key.propertie}
+            id={student.id + key.propertie}
             studentId={student.id}
             title={key.propertieAr}
             field={key.propertie}
@@ -151,6 +163,14 @@ const Table = ({ data, keys }) => {
           />
         ))
       )}
+      <div style={{ display: "none" }}>
+        <div
+          ref={componentRef}
+          style={{ width: "100%", height: window.innerHeight }}
+        >
+          <DisplayAtt formValues={formValues} counter={counter} />
+        </div>
+      </div>
     </div>
   );
 };
