@@ -1,10 +1,29 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Link } from "react-router-dom";
 import { FiSettings, FiUser, FiLogOut } from "react-icons/fi";
+import { useAuth } from "../../authContext";
+import { useNavigate } from "react-router-dom";
 
 import "./navBar.scss";
 
 const NavBar = () => {
+
+  const {currentUser,logout} = useAuth();
+  const navigate = useNavigate();
+
+
+  useEffect(() => {
+    if(!currentUser){
+      navigate('/login');
+    }
+  }, [currentUser]);
+
+
+  function handleLogout(){
+    logout();
+    navigate('/login');
+  }
+
   return (
     <nav className="component">
       <div className="dropdown">
@@ -35,6 +54,7 @@ const NavBar = () => {
           <li>
             <Link
               className="d-flex justify-content-between align-items-center dropdown-item"
+              onClick={handleLogout}
             >
               <span>تسجيل الخروج</span>
               <FiLogOut />
