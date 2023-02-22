@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {default as img} from "../../assets/logo.png";
+import {default as img} from "../../assets/logo1.png";
 
 import "./attestation.scss"
 
