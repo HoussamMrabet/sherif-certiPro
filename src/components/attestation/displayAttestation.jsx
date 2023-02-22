@@ -33,12 +33,12 @@ const DisplayAtt = ({formValues, counter}) => {
     <div className='printer'>
       <div className='component col att'>
         <img src={img} alt="" />
-        <h5 className='mb-1 wizara'>الاكاديمية الجهوية للتربية و التكوين لجهة الدار البيضاء - سطات</h5>
-        <h5 className='mb-1 wizara'>المديرية الاقليمية لبنسليمان</h5>
-        <h5 className='mb-1 wizara'>الثانوية التأهيلية الشريف الإدريسي</h5>
-        <h6 className='mb-3 wizara'>بنسليمان 0523291593</h6>
-        <h6 className='bordred-title mb-3'><span className='attNumTitle'>شهادة مدرسية رقم: </span><span className='attNum mx-4'>{yearRange}{counter}</span></h6>
-        <h6 className='mb-3'>يشهد : مدير الثانوية التأهيلية الشريف الإدريسي ببنسليمان</h6>
+        <h5 className='wizara'>الاكاديمية الجهوية للتربية و التكوين لجهة الدار البيضاء - سطات</h5>
+        <h5 className='wizara'>المديرية الاقليمية لبنسليمان</h5>
+        <h5 className='wizara'>الثانوية التأهيلية الشريف الإدريسي</h5>
+        <h6 className='mb-2 wizara'>بنسليمان 0523291593</h6>
+        <h6 className='bordred-title mb-2'><span className='attNumTitle'>شهادة مدرسية رقم: </span><span className='attNum mx-4'>{yearRange}{counter}</span></h6>
+        <h6 className='mb-2'>يشهد : مدير الثانوية التأهيلية الشريف الإدريسي ببنسليمان</h6>
         <div className='singleRow mt-2 mb-1'>
             <span>بأن التلميذ(ة): </span><span className='value'>{formValues.fName} {formValues.lName}</span>
         </div>
@@ -97,12 +97,12 @@ const DisplayAtt = ({formValues, counter}) => {
       </div>
       <div className='component col att second'>
         <img src={img} alt="" />
-        <h5 className='mb-1 wizara'>الاكاديمية الجهوية للتربية و التكوين لجهة الدار البيضاء - سطات</h5>
-        <h5 className='mb-1 wizara'>المديرية الاقليمية لبنسليمان</h5>
-        <h5 className='mb-1 wizara'>الثانوية التأهيلية الشريف الإدريسي</h5>
-        <h6 className='mb-3 wizara' style={{fontSize: "16px"}}>بنسليمان 0523291593</h6>
-        <h6 className='bordred-title mb-3'><span className='attNumTitle'>شهادة مدرسية رقم: </span><span className='attNum mx-4'>{yearRange}{counter}</span></h6>
-        <h6 className='mb-3'>يشهد : مدير الثانوية التأهيلية الشريف الإدريسي ببنسليمان</h6>
+        <h5 className='wizara'>الاكاديمية الجهوية للتربية و التكوين لجهة الدار البيضاء - سطات</h5>
+        <h5 className='wizara'>المديرية الاقليمية لبنسليمان</h5>
+        <h5 className='wizara'>الثانوية التأهيلية الشريف الإدريسي</h5>
+        <h6 className='mb-2 wizara'>بنسليمان 0523291593</h6>
+        <h6 className='bordred-title mb-2'><span className='attNumTitle'>شهادة مدرسية رقم: </span><span className='attNum mx-4'>{yearRange}{counter}</span></h6>
+        <h6 className='mb-2'>يشهد : مدير الثانوية التأهيلية الشريف الإدريسي ببنسليمان</h6>
         <div className='singleRow mt-2 mb-1'>
             <span>بأن التلميذ(ة): </span><span className='value'>{formValues.fName} {formValues.lName}</span>
         </div>
