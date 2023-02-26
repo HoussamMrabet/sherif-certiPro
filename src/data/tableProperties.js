@@ -1,5 +1,5 @@
 export const keys = [
-  { propertie: "num", propertieAr: "ر.ت" },
+  // { propertie: "num", propertieAr: "ر.ت" },
   { propertie: "fName", propertieAr: "الاسم" },
   { propertie: "lName", propertieAr: "النسب" },
   { propertie: "dateNaissance", propertieAr: "تاريخ الازدياد" },

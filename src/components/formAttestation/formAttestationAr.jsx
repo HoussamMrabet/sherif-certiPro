@@ -65,7 +65,7 @@ const FormAttestationAr = (props) => {
   return (
     <div className='component formAtt'>
       <div className="m-3 col-3">
-        <label className="form-label">الرقم الترتيبي</label>
+        <label className="form-label">رقم الشهادة</label>
         <input type="text" name="num" value={formInputs.num} className="form-control" onChange={(e)=>handleFormChange(e)} /> 
       </div>
       <div className="m-3 col-3">
